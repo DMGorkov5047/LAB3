@@ -22,13 +22,23 @@ const styles = StyleSheet.create({
 
 import { ApolloProvider } from '@apollo/client';
 import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen';
+import {ConfigProvider} from 'antd-mobile';
+import {View} from 'react-native';
+import {SelectEventScreen} from './screens/SelectEventScreen/SelectEventScreen';
+import { WelcomeScreen } from './screens/WelcomeScreen/WelcomeScreen';
+import enUS from 'antd-mobile/es/locales.en-US';
 
-import { ApolloClient} from './services/ApolloClient/ApolloClient';
+
+import { ApolloClient} from './services/ApolloClient';
 
 export default function App() {
   return (
   <ApolloProvider client={ApolloClient}>
-  <WelcomeScreen /> 
+    <ConfigProvider locale={enUs}>
+    <View>
+      <SelectEventScreen />
+    </View>
+    </ConfigProvider>
   </ApolloProvider>
   );
 
